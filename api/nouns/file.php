@@ -2,16 +2,14 @@
 	class File extends Noun {
 		
 		function get(){
-			$jobModel = new Job_Model();
+			$fileModel = new File_Model();
 			//get vars from URI
 			if(isset($this->URIParts[3]) and is_numeric($this->URIParts[3]))
 				$this->data["id"] = $this->URIParts[3];
-			if(!isset($this->data["id"]))//Display All Jobs
-				$this->sendJSON($jobModel->getJobs());
-			//elseif(isset($this->data["uid"])) 							//Display Jobs by user
-			//	$this->sendJSON($jobModel->getJobsByUser($this->data["uid"]));
-			else 														//Display Job by id
-				$this->sendJSON($jobModel->getJob($this->data["id"]));
+			if(isset($this->data["id"]))//Display All Jobs
+				$this->sendJSON($fileModel->getFilesByJobID($this->data["id"]));
+			else
+				$this->sendJSON($fileModel->getFiles());
 		}
 
 		function post(){

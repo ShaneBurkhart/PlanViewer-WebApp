@@ -19,7 +19,7 @@ app.Router = Backbone.Router.extend({
 	},
 
 	showEditJob : function(id){
-		new app.JobEditView({id : id});
+		this.RM.show(new app.JobEditView({jobId : id}));
 	},
 
 	showUsers : function(){

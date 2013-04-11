@@ -2,22 +2,18 @@ var app = app || {};
 
 app.JobEditView = Backbone.View.extend({
     children : {},
-	el : "#page-container",
+	id : "job-files",
     template : _.template(app.Templates["job-edit"]),
 
 	initialize: function() {
-        this.model = new app.JobEditModel({id : this.id});
-        var self = this;
-        this.model.fetch({success : function(){
-            self.children.fileListView = new app.FileListView({id : this.id});
-        }});
-        this.listenTo(this.model, "change", this.render);
-    },
-
-    events : {
+        this.children.fileListView = new app.FileListView({jobId : this.options.jobId});
+        this.children.jobView = new app.JobView({jobId : this.options.jobId});
+        this.render();
     },
 
     render : function(){
-        this.$el.html(this.template(this.model.toJSON()));
+        this.$el.html(this.template());
+        this.$el.prepend(this.children.jobView.el);
+        this.$el.append(this.children.fileListView.el);
     }
 });

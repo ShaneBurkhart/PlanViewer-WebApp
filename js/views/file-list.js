@@ -2,10 +2,12 @@ var app = app || {};
 
 app.FileListView = Backbone.View.extend({
     children : {},
-	el : "#file-list-container",
+    tagName : "ul",
+	id : "file-list-container",
+    className : "unstyled list-view",
 
 	initialize: function() {
-        this.collection = new app.FileListCollection();
+        this.collection = new app.FileListCollection(0, {url : "api/file/" + this.options.jobId});
         this.collection.fetch();
         this.render();
         this.listenTo(this.collection, "reset", this.render);
@@ -28,6 +30,7 @@ app.FileListView = Backbone.View.extend({
     },
 
     renderOne : function(item){
+        console.log(item);
         var fileView = new app.FileItemView({
             model : item
         });
