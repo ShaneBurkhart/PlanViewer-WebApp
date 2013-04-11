@@ -1,0 +1,79 @@
+form{
+	display:inline-block;
+}
+
+.header{
+	background-color: black;
+}
+
+#logo h3{
+	color:#dbffe7;
+}
+#logo{
+	text-decoration: none;
+}
+
+.job-name-col{
+}
+
+.user-email-col{
+	width:300px;
+}
+.user-name-col{
+	width:250px;
+}
+
+.jumbotron{
+	background-color:#dbffe7;
+	padding:40px 0;
+	text-align: center;
+}
+.subhead{
+	text-align: left;
+}
+.subhead h1{
+	font-size: 60px;
+	line-height: 1;
+}
+.subhead p{
+	font-size: 20px;
+	line-height: 1.25;
+}
+
+.section{
+	padding-top:20px;
+}
+
+.job-line{
+	
+	padding:10px 0;
+	vertical-align: bottom;
+}
+
+.list-view{
+
+}
+.list-view > li{
+	border-bottom: thin solid #ddd;
+	padding: 10px;
+}
+.list-view > li:not(#list-types):hover{
+	background-color: #f5f5f5;
+}
+
+.controls{
+	list-style: none;
+}
+
+.no-padding{
+	padding:0 0;
+}
+.no-margin{
+	margin:0 0;
+}
+.hidden{
+	display:none;
+}
+.inline-block{
+	display:inline-block;
+}
