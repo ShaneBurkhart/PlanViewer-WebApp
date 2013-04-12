@@ -65,7 +65,7 @@
 				return 0;
 		}
 
-		public function update($id, $jid, $pageNum){
+		public function update($id, $jid, $pageNum, $direction){
 			$query = "	UPDATE pages SET page_num = ?
 						WHERE id = ?";
 			$stmt = $this->db->prepare($query);
@@ -74,8 +74,11 @@
 				return;
 			if($stmt)
 				$stmt->close();
-			$query = "	UPDATE pages SET page_num = page_num + 1
-						WHERE job_id = ? AND page_num >= ? AND id != ?";
+			if($direction == "down")
+				$inc = " - 1 ";
+			else
+				$inc =  " + 1 ";
+			$query = "	UPDATE pages SET page_num = page_num" . $inc . "WHERE job_id = ? AND page_num = ? AND id != ?";
 			$stmt = $this->db->prepare($query);
 			$stmt->bind_param("iii", $jid, $pageNum, $id);
 			$stmt->execute();

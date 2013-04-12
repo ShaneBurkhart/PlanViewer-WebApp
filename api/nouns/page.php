@@ -24,10 +24,10 @@
 
 		function put(){
 			$pageModel = new Page_Model();
-			if(!isset($this->data["id"]) or !isset($this->data["pageNum"]) or !isset($this->data["jobId"]))
+			if(!isset($this->data["id"]) or !isset($this->data["pageNum"]) or !isset($this->data["jobId"]) or !isset($this->data["direction"]))
 				die("No"); 
 			
-			$pageModel->update($this->data["id"], $this->data["jobId"], $this->data["pageNum"]);		
+			$pageModel->update($this->data["id"], $this->data["jobId"], $this->data["pageNum"], $this->data["direction"]);		
 			$this->sendJSON($pageModel->getPage($this->data["id"]));
 		}
 

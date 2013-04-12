@@ -13,16 +13,33 @@ app.PageItemView = Backbone.View.extend({
 
 	delete : function(e){
 		e.preventDefault();
-		console.log(this.model.id);
 		this.model.destroy();
 		this.remove();
 	},
 
+	move : function(up){
+		var newPageNum, dir;
+		if(up){
+			newPageNum = this.model.get("pageNum") - 1;
+			dir = "up";
+		}else{	
+			newPageNum = this.model.get("pageNum") + 1;	
+			dir = "down";
+		}
+		this.model.set("pageNum", newPageNum);
+		var data = this.model.toJSON();
+		data = _.extend(data, {direction : dir});
+		this.model.save(data);
+	},
+
 	moveUp : function(e){
 		e.preventDefault();
-		var newPageNum = this.model.get("pageNum") + 1;
-		this.model.set("pageNum", newPageNum);
-		this.model.save();
+		this.move(1);
+	},
+
+	moveDown : function(e){
+		e.preventDefault();
+		this.move(0);
 	},
 
 	getParent : function(e){
