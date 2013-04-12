@@ -8,7 +8,8 @@ app.JobView = Backbone.View.extend({
 	initialize : function(){
 		if(!app.collections.jobListCollection || !(this.model = app.collections.jobListCollection.get(this.options.jobId))){
 			this.model = new app.JobItemModel(0, {url : "api/job/" + this.options.jobId});
-			this.model.fetch();
+			app.showLoading();
+			this.model.fetch({success : app.hideLoading});
 		}else
 			this.render();
         this.listenTo(this.model, "change", this.render);

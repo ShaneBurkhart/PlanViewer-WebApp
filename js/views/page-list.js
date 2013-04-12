@@ -8,7 +8,8 @@ app.PageListView = Backbone.View.extend({
 
 	initialize: function() {
         this.collection = new app.PageListCollection(0, {url : "api/page/" + this.options.jobId});
-        this.collection.fetch();
+        app.showLoading();
+        this.collection.fetch({success : app.hideLoading});
         this.render();
         this.listenTo(this.collection, "reset", this.render);
         this.listenTo(this.collection, "change", this.render);

@@ -9,7 +9,8 @@ app.JobListView = Backbone.View.extend({
 	initialize: function() {
         if(!app.collections.jobListCollection)
             app.collections.jobListCollection = new app.JobListCollection();
-        app.collections.jobListCollection.fetch();
+        app.showLoading();
+        app.collections.jobListCollection.fetch({success : app.hideLoading});
 
         this.listenTo(app.collections.jobListCollection, "add", this.renderOne);
         this.listenTo(app.collections.jobListCollection, "reset", this.render);

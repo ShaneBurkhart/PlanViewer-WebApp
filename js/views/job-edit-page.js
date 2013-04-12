@@ -12,7 +12,8 @@ app.JobEditView = Backbone.View.extend({
     },
 
     addPage : function(pagename){
-        this.children.pageListView.collection.create({jobId : this.options.jobId, pageName : pagename}, {wait : true});
+        app.showLoading();
+        this.children.pageListView.collection.create({jobId : this.options.jobId, pageName : pagename}, {wait : true, success : app.hideLoading});
     },
 
     render : function(){

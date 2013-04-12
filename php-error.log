@@ -168,3 +168,7 @@
 [12-Apr-2013 05:14:10 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
 [12-Apr-2013 05:14:22 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
 [12-Apr-2013 05:29:17 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 15:43:04 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 15:45:03 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 15:46:09 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 15:51:05 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?

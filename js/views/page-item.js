@@ -50,14 +50,12 @@ app.PageItemView = Backbone.View.extend({
 		var data = this.model.toJSON();
 		data = _.extend(data, {oldPageNum : oldPageNum});
 		var self = this;
-		app.LoadingContainer.show();
+		app.showLoading();
 		this.model.save(data, {
 			success : function(){
 				self.collection.fetch({
 					reset : true, 
-					success : function(){
-						app.LoadingContainer.hide();
-					}
+					success : app.hideLoading
 				});
 			}
 		});
