@@ -49,7 +49,18 @@ app.PageItemView = Backbone.View.extend({
 		this.model.set("pageNum", newPageNum);
 		var data = this.model.toJSON();
 		data = _.extend(data, {oldPageNum : oldPageNum});
-		this.model.save(data);
+		var self = this;
+		app.LoadingContainer.show();
+		this.model.save(data, {
+			success : function(){
+				self.collection.fetch({
+					reset : true, 
+					success : function(){
+						app.LoadingContainer.hide();
+					}
+				});
+			}
+		});
 		num.find(".page-num-text").val("");
 		this.toggleMove(e);
 	},

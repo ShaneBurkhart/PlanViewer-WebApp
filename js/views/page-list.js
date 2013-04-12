@@ -29,7 +29,8 @@ app.PageListView = Backbone.View.extend({
 
     renderOne : function(item){
         var pageView = new app.PageItemView({
-            model : item
+            model : item,
+            collection : this.collection
         });
         this.$el.append(pageView.render().el);
     }

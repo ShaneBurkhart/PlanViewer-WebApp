@@ -156,3 +156,15 @@
 [12-Apr-2013 05:00:17 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
 [12-Apr-2013 05:02:23 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
 [12-Apr-2013 05:02:33 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 05:07:18 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:09:46 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:10:02 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:10:06 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 05:10:50 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 05:10:54 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:12:09 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:12:12 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:13:43 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 05:14:10 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:14:22 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:29:17 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?

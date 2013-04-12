@@ -9,5 +9,7 @@ Backbone.View.prototype.close = function(){
 
 app = _.extend(app, {collections : {}});
 
+app.LoadingContainer = $("#loading-container");
+
 new app.Router(app);
 Backbone.history.start();
