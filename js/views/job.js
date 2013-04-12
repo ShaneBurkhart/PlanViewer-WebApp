@@ -6,8 +6,11 @@ app.JobView = Backbone.View.extend({
 	template : _.template(app.Templates["job"]),
 
 	initialize : function(){
-		this.model = new app.JobItemModel(0, {url : "api/job/" + this.options.jobId});
-        this.model.fetch();
+		if(!app.collections.jobListCollection || !(this.model = app.collections.jobListCollection.get(this.options.jobId))){
+			this.model = new app.JobItemModel(0, {url : "api/job/" + this.options.jobId});
+			this.model.fetch();
+		}else
+			this.render();
         this.listenTo(this.model, "change", this.render);
     },
 

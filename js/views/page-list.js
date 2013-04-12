@@ -1,13 +1,13 @@
 var app = app || {};
 
-app.FileListView = Backbone.View.extend({
+app.PageListView = Backbone.View.extend({
     children : {},
     tagName : "ul",
-	id : "file-list-container",
+	id : "page-list-container",
     className : "unstyled list-view",
 
 	initialize: function() {
-        this.collection = new app.FileListCollection(0, {url : "api/file/" + this.options.jobId});
+        this.collection = new app.PageListCollection(0, {url : "api/page/" + this.options.jobId});
         this.collection.fetch();
         this.render();
         this.listenTo(this.collection, "reset", this.render);
@@ -15,12 +15,10 @@ app.FileListView = Backbone.View.extend({
         this.listenTo(this.collection, "add", this.renderOne);
     },
 
-    events : {
-    },
-
     render : function(){
         this.$el.html("");
         this.renderAll();
+        return this;
     },
 
     renderAll : function(){
@@ -30,10 +28,9 @@ app.FileListView = Backbone.View.extend({
     },
 
     renderOne : function(item){
-        console.log(item);
-        var fileView = new app.FileItemView({
+        var pageView = new app.PageItemView({
             model : item
         });
-        this.$el.append(fileView.render().el);
+        this.$el.append(pageView.render().el);
     }
 });

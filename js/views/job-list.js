@@ -7,12 +7,13 @@ app.JobListView = Backbone.View.extend({
     className : "unstyled list-view",
 
 	initialize: function() {
-        this.collection = new app.JobListCollection();
-        this.collection.fetch();
+        if(!app.collections.jobListCollection)
+            app.collections.jobListCollection = new app.JobListCollection();
+        app.collections.jobListCollection.fetch();
 
-        this.listenTo(this.collection, "add", this.renderOne);
-        this.listenTo(this.collection, "reset", this.render);
-        this.listenTo(this.collection, "change", this.render);
+        this.listenTo(app.collections.jobListCollection, "add", this.renderOne);
+        this.listenTo(app.collections.jobListCollection, "reset", this.render);
+        this.listenTo(app.collections.jobListCollection, "change", this.render);
     },
 
     render : function(){
@@ -22,13 +23,13 @@ app.JobListView = Backbone.View.extend({
     },
 
     renderAll : function(){
-    	this.collection.each(this.renderOne, this);
+    	app.collections.jobListCollection.each(this.renderOne, this);
     },
 
     renderOne : function(item){
     	var jobView = new app.JobItemView({
     		model : item
     	});
-    	this.$el.append(jobView.render().el);
+    	this.$el.prepend(jobView.render().el);
     }
 });
