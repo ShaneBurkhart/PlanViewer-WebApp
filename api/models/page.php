@@ -65,7 +65,9 @@
 				return 0;
 		}
 
-		public function update($id, $jid, $pageNum, $direction){
+		public function update($id, $jid, $pageNum, $oldPageNum){
+			$high = $this->getHightestPageNum($jid);
+			$pageNum = $pageNum > $high ? $high : $pageNum;
 			$query = "	UPDATE pages SET page_num = ?
 						WHERE id = ?";
 			$stmt = $this->db->prepare($query);
@@ -74,13 +76,19 @@
 				return;
 			if($stmt)
 				$stmt->close();
-			if($direction == "down")
+			if($pageNum > $oldPageNum){
 				$inc = " - 1 ";
-			else
+				$op1 = " <= ";
+				$op2 = " >= ";
+			}else{
 				$inc =  " + 1 ";
-			$query = "	UPDATE pages SET page_num = page_num" . $inc . "WHERE job_id = ? AND page_num = ? AND id != ?";
+				$op1 = " >= ";
+				$op2 = " <= ";
+			}
+			$query = "	UPDATE pages SET page_num = page_num" . $inc . "WHERE job_id = ? AND page_num " . $op1 . " ? AND page_num " . $op2 . " ? AND id != ?";
+			error_log($query);
 			$stmt = $this->db->prepare($query);
-			$stmt->bind_param("iii", $jid, $pageNum, $id);
+			$stmt->bind_param("iiii", $jid, $pageNum, $oldPageNum, $id);
 			$stmt->execute();
 			if($stmt)
 				$stmt->close();

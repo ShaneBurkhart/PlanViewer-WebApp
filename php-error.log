@@ -101,3 +101,58 @@
 [12-Apr-2013 03:35:19 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
 [12-Apr-2013 03:35:19 UTC] PHP   3. Job->delete() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
 [12-Apr-2013 03:35:19 UTC] PHP   4. Job_Model->delete() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\job.php:43
+[12-Apr-2013 04:53:59 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 88
+[12-Apr-2013 04:53:59 UTC] PHP Stack trace:
+[12-Apr-2013 04:53:59 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:53:59 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:53:59 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:53:59 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:53:59 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:88
+[12-Apr-2013 04:54:24 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 88
+[12-Apr-2013 04:54:24 UTC] PHP Stack trace:
+[12-Apr-2013 04:54:24 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:54:24 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:54:24 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:54:24 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:54:24 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:88
+[12-Apr-2013 04:55:13 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 88
+[12-Apr-2013 04:55:13 UTC] PHP Stack trace:
+[12-Apr-2013 04:55:13 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:55:13 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:55:13 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:55:13 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:55:13 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:88
+[12-Apr-2013 04:55:23 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 88
+[12-Apr-2013 04:55:23 UTC] PHP Stack trace:
+[12-Apr-2013 04:55:23 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:55:23 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:55:23 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:55:23 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:55:23 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:88
+[12-Apr-2013 04:55:47 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 88
+[12-Apr-2013 04:55:47 UTC] PHP Stack trace:
+[12-Apr-2013 04:55:47 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:55:47 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:55:47 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:55:47 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:55:47 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:88
+[12-Apr-2013 04:56:48 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 88
+[12-Apr-2013 04:56:48 UTC] PHP Stack trace:
+[12-Apr-2013 04:56:49 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:56:49 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:56:49 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:56:49 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:56:49 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:88
+[12-Apr-2013 04:58:09 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 04:58:09 UTC] PHP Warning:  mysqli_stmt::bind_param() [<a href='mysqli-stmt.bind-param'>mysqli-stmt.bind-param</a>]: Number of elements in type definition string doesn't match number of bind variables in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php on line 89
+[12-Apr-2013 04:58:09 UTC] PHP Stack trace:
+[12-Apr-2013 04:58:09 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[12-Apr-2013 04:58:09 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[12-Apr-2013 04:58:09 UTC] PHP   3. Page->put() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[12-Apr-2013 04:58:09 UTC] PHP   4. Page_Model->update() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\page.php:30
+[12-Apr-2013 04:58:09 UTC] PHP   5. mysqli_stmt->bind_param() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\models\page.php:89
+[12-Apr-2013 04:59:42 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 04:59:55 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:00:17 UTC] 	UPDATE pages SET page_num = page_num + 1 WHERE job_id = ? AND page_num  >=  ? AND page_num  <=  ? AND id != ?
+[12-Apr-2013 05:02:23 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?
+[12-Apr-2013 05:02:33 UTC] 	UPDATE pages SET page_num = page_num - 1 WHERE job_id = ? AND page_num  <=  ? AND page_num  >=  ? AND id != ?

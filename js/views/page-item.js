@@ -6,9 +6,9 @@ app.PageItemView = Backbone.View.extend({
 	template : _.template(app.Templates["page-item"]),
 
 	events : {
-		"click .controls .up" : "moveUp",
-		"click .controls .down" : "moveDown",
-		"click .controls .remove" : "delete"
+		"click .controls .move" : "toggleMove",
+		"click .controls .remove" : "delete",
+		"keypress .page-num-text" : "moveKey"
 	}, 
 
 	delete : function(e){
@@ -17,29 +17,41 @@ app.PageItemView = Backbone.View.extend({
 		this.remove();
 	},
 
-	move : function(up){
-		var newPageNum, dir;
-		if(up){
-			newPageNum = this.model.get("pageNum") - 1;
-			dir = "up";
-		}else{	
-			newPageNum = this.model.get("pageNum") + 1;	
-			dir = "down";
-		}
+	toggleMove : function(e){
+		e.preventDefault();
+		var parent = this.getParent(e),
+			form = $(parent).find(".page-num-form"),
+			num = $(parent).find(".page-num");
+		form.toggle();
+		num.toggle();
+		if(num.is(":hidden"))
+			form.find(".page-num-text").focus();
+		else
+			this.move(e);
+	},
+
+	moveKey : function(e){
+		if((e.keycode || e.which) == 13){
+            e.preventDefault();	
+			this.move(e);
+        }
+	},
+
+	move : function(e){
+		var parent = this.getParent(e),
+			form = $(parent).find(".page-num-form"),
+			num = $(parent).find(".page-num"),
+			newPageNum = form.find(".page-num-text").val(),
+			oldPageNum = this.model.get("pageNum");
+		if(isNaN(newPageNum))
+			return;
+		newPageNum = newPageNum < 1 ? 1 : newPageNum;
 		this.model.set("pageNum", newPageNum);
 		var data = this.model.toJSON();
-		data = _.extend(data, {direction : dir});
+		data = _.extend(data, {oldPageNum : oldPageNum});
 		this.model.save(data);
-	},
-
-	moveUp : function(e){
-		e.preventDefault();
-		this.move(1);
-	},
-
-	moveDown : function(e){
-		e.preventDefault();
-		this.move(0);
+		num.find(".page-num-text").val("");
+		this.toggleMove(e);
 	},
 
 	getParent : function(e){

@@ -1,11 +1,17 @@
-<div class="span1"><a href="#"><%= pageNum %></a></div>
+<div class="span1">
+	<a class="page-num" href="#"><%= pageNum %></a>
+	<div class="page-num-form no-margin hidden">
+		<form action="#" class="no-margin">
+			<input type="text" class="page-num-text super-short no-margin no-padding" value="<%= pageNum %>">
+		</form>
+	</div>
+</div>
 <div class="span3"><a href="#"><%= pageName %></a></div>
 <div class="span2"><a href="#"><%= date %></a></div>
 <div class="span3"><a href="#"><%= filename %></a></div>
 <div class="span3">
 	<ul class="controls inline pull-right">
-		<li><a class="up muted icon-arrow-up" href="#"></a></li>
-		<li><a class="down muted icon-arrow-down" href="#"></a></li>
-		<li><a class="remove muted" href="#">Remove</a></li>
+		<li><a class="move muted" href="#">Move</a></li>
+		<li><a class="remove muted" href="#">Delete</a></li>
 	</ul>
 </div>
