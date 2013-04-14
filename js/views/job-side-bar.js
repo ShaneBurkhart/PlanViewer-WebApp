@@ -4,7 +4,7 @@ app.JobSideBarView = Backbone.View.extend({
     children : {},
     id : "job-side-bar",
     tagName : "div",
-    template : _.template(app.Templates["job-side-bar"]),
+    template : _.template(app.Templates["job-page-side-bar"]),
 
 	initialize: function() {
 

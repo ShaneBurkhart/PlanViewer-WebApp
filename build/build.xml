@@ -1,0 +1,88 @@
+<project>
+	<target name="-init">
+		<!--Declare properties-->
+		<!--YUI Compressor path-->
+		<property name="yui.dir" value="yui/yuic.jar"/>
+		<!--Time for the build-->
+		<tstamp>
+            <format property="TODAY" pattern="MMM-d-yyyy-HHmmss"/>
+        </tstamp>
+		<!--Base final dir with time appended-->
+		<property name="base.dir" value="production"/>
+		<!--Root of entire project-->
+		<property name="proj.dir" location=".."/>
+		<!--Clean up previous-->
+		<delete dir="production"/>
+		<!--Save file containing date-->
+        <echo file="tstamp.txt" append="false">Build Date: ${TODAY}</echo>
+		<!--Set up production enviornment-->
+		<mkdir dir="${base.dir}"/>
+		<mkdir dir="${base.dir}/_files"/>
+		<mkdir dir="${base.dir}/js"/>
+		<mkdir dir="${base.dir}/js/templates"/>
+		<mkdir dir="${base.dir}/css"/>
+		<!--Copy all dirs that don't need modifying-->
+		<copy todir="${base.dir}/api">
+			<fileset dir="${proj.dir}/api"/>
+		</copy>
+		<copy todir="${base.dir}/bootstrap">
+			<fileset dir="${proj.dir}/bootstrap"/>
+		</copy>
+		<copy todir="${base.dir}/js/templates">
+			<fileset dir="${proj.dir}/js/templates"/>
+		</copy>
+		<copy todir="${base.dir}/css">
+			<fileset dir="${proj.dir}/css"/>
+		</copy>
+		<!--Copy all necessary bottom level files-->
+		<copy file="index.html" tofile="${base.dir}/index.html"/>
+		<copy file="config.php" tofile="${base.dir}/api/config.php" overwrite="true"/>
+	</target>
+
+	<target name="-concat-js" depends="-init">
+		<concat destfile="${base.dir}/js/planviewer.js" append="false">
+			<!--Libraries. In order!!!-->
+			<filelist dir="${proj.dir}/js/libs">
+				<file name="jquery.min.js"/>
+				<file name="underscore-min.js"/>
+				<file name="backbone.js"/>
+			</filelist>
+			<!--Template Loader-->
+			<fileset dir="${proj.dir}/js/loaders" includes="*.js"/>
+			<!--Models-->
+			<fileset dir="${proj.dir}/js/models" includes="*.js"/>
+			<!--Collections-->
+			<fileset dir="${proj.dir}/js/collections" includes="*.js"/>
+			<!--Views-->
+			<fileset dir="${proj.dir}/js/views" includes="*.js"/>
+			<!--Root files-->
+			<filelist dir="${proj.dir}/js">
+				<file name="region-manager.js"/>
+			</filelist>
+			<!--Router-->
+			<fileset dir="${proj.dir}/js/routers" includes="*.js"/>
+			<!--App. Has to be last-->
+			<filelist dir="${proj.dir}/js">
+				<file name="app.js"/>
+			</filelist>
+		</concat>
+	</target>
+
+	<target name="-minify-js">
+		<apply executable="java" parallel="false" dest="${base.dir}/js">
+            <fileset 
+                dir="${base.dir}/js" 
+                includes="planviewer.js"/>
+            <arg line="-jar"/>
+            <arg path="${yui.dir}"/>
+            <srcfile/>
+            <arg line="-o"/>
+            <mapper type="glob" from="*.js" to="*-min.js"/>
+            <targetfile/>
+        </apply>
+	</target>
+
+	<target name="build" depends="-init, -concat-js, -minify-js">
+		<echo>Finished building the project</echo>
+	</target>
+</project>

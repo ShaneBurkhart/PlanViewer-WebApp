@@ -8,11 +8,12 @@ app.UserListView = Backbone.View.extend({
     children : {},
 
 	initialize: function() {
-        this.collection = new app.UserListCollection();
-        this.collection.fetch();
-        this.listenTo(this.collection, "add", this.render);
-        this.listenTo(this.collection, "reset", this.render);
-        this.listenTo(this.collection, "change", this.render);
+        app.collections.userListCollection = new app.UserListCollection();
+        app.showLoading();
+        app.collections.userListCollection.fetch({success : app.hideLoading});
+        this.listenTo(app.collections.userListCollection, "add", this.render);
+        this.listenTo(app.collections.userListCollection, "reset", this.render);
+        this.listenTo(app.collections.userListCollection, "change", this.render);
     },
 
     render : function(){
@@ -22,7 +23,7 @@ app.UserListView = Backbone.View.extend({
     },
 
     renderAll : function(){
-    	this.collection.each(function(item){
+    	app.collections.userListCollection.each(function(item){
     		this.renderOne(item);
     	}, this);
     },

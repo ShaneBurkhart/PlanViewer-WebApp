@@ -7,37 +7,18 @@ app.UserPageView = Backbone.View.extend({
 
     initialize: function() {
         this.children.userListView = new app.UserListView();
+        this.children.userSideBar = new app.UserSideBarView({parentView : this});
     },
 
-    events : {
-    	"click #add-a-user-text" : "toggleInput",
-    	"click #add-a-user-close" : "toggleInput",
-        "keypress #add-a-user-form input" : "addUser"
-    },
-
-    addUser : function(e){
-        if((e.keycode || e.which) == 13){
-            e.preventDefault();
-            var email = $("#add-a-user-form input").val();
-            if(email == "")
-                return;
-            this.children.userListView.collection.create({email : email});
-            //this.toggleInput(e);
-            $("#add-a-user-form input").val("Email");
-        }
-    },
-
-    toggleInput : function(e){
-        console.log("asdf");
-        e.preventDefault();
-    	$("#add-a-user-text").toggle();
-    	$("#add-a-user-form").toggle();
-        if($("#add-a-user-form").is(":visible"))
-            $("#add-a-user-form input").focus();
+    addUser : function(username, email){   
+        console.log(username + email);
+        app.showLoading(); 
+        app.collections.userListCollection.create({name : username, email : email}, {wait : true, success : app.hideLoading});
     },
 
     render : function(){
         this.$el.html(this.template());
-        this.$el.append(this.children.userListView.$el)
+        this.$el.find("#content").append(this.children.userListView.$el);
+        this.$el.find("#side-bar").append(this.children.userSideBar.render().$el);
     }
 });

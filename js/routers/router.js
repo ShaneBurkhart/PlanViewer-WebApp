@@ -27,8 +27,7 @@ app.Router = Backbone.Router.extend({
 	},
 
 	showShareFile : function(id){
-		new app.UserPageView();
-		console.log("asd");
+		this.RM.show(new app.UserShareView({userId : id}));
 	},
 
 	showError : function(path){

@@ -2,16 +2,30 @@ var app = app || {};
 
 app.PageItemView = Backbone.View.extend({
 	tagName : "li",
+	id : function(){
+		return this.model.id;
+	},
+
 	className : "page-container row-fluid",
 	template : _.template(app.Templates["page-item"]),
 
 	events : {
 		"click .controls .move" : "toggleMove",
-		"click .controls .remove" : "delete",
+		"click .controls .remove" : "deletePage",
+		"click .controls .upload" : "upload",
 		"keypress .page-num-text" : "moveKey"
 	}, 
 
-	delete : function(e){
+	initialize : function(){
+	},
+
+	upload : function(e){
+		e.preventDefault();
+		$("#upload-page-id").val(this.model.id);
+		$("#upload-file").trigger("click");
+	},
+
+	deletePage : function(e){
 		e.preventDefault();
 		this.model.destroy();
 		this.remove();

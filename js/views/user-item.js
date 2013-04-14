@@ -2,7 +2,7 @@ var app = app || {};
 
 app.UserItemView = Backbone.View.extend({
 	tagName : "li",
-	className : "user-container",
+	className : "user-container row-fluid",
 	template : _.template(app.Templates["user-item"]),
 
 	events : {
@@ -22,7 +22,7 @@ app.UserItemView = Backbone.View.extend({
 
 	deleteUser : function(e){
 		e.preventDefault();
-		this.model.destroy();
+		this.model.destroy({success : function(data){console.log(data);}});
 		this.remove();
 	},
 
