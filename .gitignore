@@ -1,0 +1,8 @@
+bin/
+tstamp.txt
+production/
+build/config.php
+_files/
+.metadata
+php-error.log
+POA
