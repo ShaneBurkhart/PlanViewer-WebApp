@@ -153,3 +153,14 @@
 [14-Apr-2013 16:16:09 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
 [14-Apr-2013 16:16:09 UTC] PHP   3. Job->delete() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
 [14-Apr-2013 16:16:09 UTC] PHP   4. Job_Model->delete() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\job.php:43
+[25-Apr-2013 02:13:32 UTC] PHP Notice:  Undefined index: password in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\user.php on line 22
+[25-Apr-2013 02:13:32 UTC] PHP Stack trace:
+[25-Apr-2013 02:13:32 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[25-Apr-2013 02:13:32 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[25-Apr-2013 02:13:32 UTC] PHP   3. User->post() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[25-Apr-2013 02:13:33 UTC] PHP Warning:  mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\user.php on line 22
+[25-Apr-2013 02:13:33 UTC] PHP Stack trace:
+[25-Apr-2013 02:13:33 UTC] PHP   1. {main}() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:0
+[25-Apr-2013 02:13:33 UTC] PHP   2. include() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\index.php:2
+[25-Apr-2013 02:13:33 UTC] PHP   3. User->post() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\router.php:76
+[25-Apr-2013 02:13:33 UTC] PHP   4. mail() C:\Users\Shane\Desktop\PlanViewer\PV2.0\api\nouns\user.php:22

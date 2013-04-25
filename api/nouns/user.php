@@ -16,9 +16,14 @@
 			if(!isset($this->data["name"]) or !isset($this->data["email"]))
 				die("No names"); // send response
 			
-			if($id = $userModel->create($this->data["name"], $this->data["email"]))
-				$this->sendJSON($userModel->getUser($id));
-			else
+			if($user = $userModel->create($this->data["name"], $this->data["email"])){
+				$this->sendJSON($userModel->getUser($user["id"]));
+				mail($user["email"], "Your Plan Viewer Account Is Ready!", "We are glad you have joined Plan Viewer." .
+					"\n\nYou can no login to your account:\n" . 
+					"Username: " . $user["username"] . 
+					"\nPassword: " . $user["password"] . 
+					"\nDownload the app and view your jobs.");
+			}else
 				$this->sendJSON($userModel->getUser($userModel->getUserID($this->data["name"])));
 		}
 

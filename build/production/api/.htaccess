@@ -1,5 +1,0 @@
-#ErrorDocument 404 /error?error=Page%20Not%20Found
-
-RewriteEngine On 
-
-RewriteRule ^(.*) index.php [NC,L]
