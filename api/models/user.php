@@ -34,11 +34,12 @@
 		public function create($user, $email){
 			if($this->getUserID($user))
 				return 0;
-			$query = "	INSERT INTO users(username, email) VALUES (?, ?)";
+			$pass = $this->generatePassword();
+			$query = "	INSERT INTO users(username, email, hash, salt) VALUES (?, ?, ?, ?)";
 			$stmt = $this->db->prepare($query);
-			$stmt->bind_param("ss", $user, $email);
+			$stmt->bind_param("ssss", $user, $email, $pass["hash"], $pass["salt"]);
 			if($stmt->execute())
-				return $this->db->insert_id;
+				return array("id" => $this->db->insert_id, "username" => $user, "email" => $email, "password" => $pass["password"], "hash" => $pass["hash"], "salt" => $pass["salt"]);
 			else 
 				return 0;
 		}
@@ -95,6 +96,44 @@
 			$r2 = $stmt->execute();
 
 			return $r1 and $r2;
+		}
+
+		public function login($username, $password){
+			$user = $this->getUser($this->getUserID($username));
+		}
+
+		private function generatePassword() {
+		    $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+		    $pass = array(); //remember to declare $pass as an array
+		    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+		    for ($i = 0; $i < 8; $i++) {
+		        $n = rand(0, $alphaLength);
+		        $pass[] = $alphabet[$n];
+		    }
+		    $user["password"] = implode($pass);
+		    $t = $this->toHash($user["password"]);
+		    $user["hash"] = $t["hash"];
+		    $user["salt"] = $t["salt"];
+		    return $user;
+		}
+
+		private function toHash($pass){
+			$a = array();
+			$salt = mcrypt_create_iv(24, MCRYPT_DEV_RANDOM);
+			$a['salt'] = $salt;
+			$salted_pass = $salt . $pass;
+			$hash = hash("sha256", $salted_pass);
+			$a['hash'] = $hash;
+			return $a;
+		}
+
+		private function toHashWithSalt($pass, $salt){
+			$a = array();
+			$a['salt'] = $salt;
+			$salted_pass = $salt . $pass;
+			$hash = hash("sha256", $salted_pass);
+			$a['hash'] = $hash;
+			return $a;
 		}
 	}
 ?>
