@@ -28,16 +28,19 @@
 	$requestURI = $_SERVER["REQUEST_URI"];
 	
 	//Get data
+	$data = array();
 	switch ($requestMethod){  
         case 'get':  
             $data = $_GET;  
             break;  
         case 'post':  
+        	$data = $_POST;
         case 'put': 
         case 'delete':
-            $data = json_decode(file_get_contents('php://input'), true);  
+        	$j = json_decode(file_get_contents('php://input'), true);
+            $data = $j ? array_merge($data, $j) : $data;  
             break; 
-    }
+    }	
 
     //Process URI
     $temp = explode("?", $requestURI);

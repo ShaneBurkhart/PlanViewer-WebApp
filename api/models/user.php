@@ -99,7 +99,21 @@
 		}
 
 		public function login($username, $password){
-			$user = $this->getUser($this->getUserID($username));
+			$query = "	SELECT id, hash, salt
+						FROM users
+						WHERE username = ?";
+			$stmt = $this->db->prepare($query);
+			$stmt->bind_param("s", $username);
+			$stmt->execute();
+			$stmt->bind_result($id, $hash, $salt);
+			if(!$stmt->fetch())
+				return 0;
+			$stmt || $stmt->close();
+			$t = $this->toHashWithSalt($password, $salt);
+			if($t["hash"] == $hash)
+				return $id;
+			else
+				return 0;
 		}
 
 		private function generatePassword() {

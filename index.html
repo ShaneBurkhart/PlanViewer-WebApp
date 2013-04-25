@@ -74,5 +74,15 @@
 		<script type="text/javascript" src="js/region-manager.js"></script>
 		<script type="text/javascript" src="js/routers/router.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
+
+		<script type="text/javascript">
+			$.ajax({
+				url : "/api/login",
+				type : "POST",
+				data : {username : "Shane", password : "kFj5agh4"},
+				dataType : "json",
+				complete : function(data){console.log(data.responseText);}
+			});
+		</script>
 	</body>
 </html>
