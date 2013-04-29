@@ -76,13 +76,14 @@
 		<script type="text/javascript" src="js/app.js"></script>
 
 		<script type="text/javascript">
-			$.ajax({
-				url : "/api/login",
-				type : "POST",
-				data : {username : "Shane", password : "kFj5agh4"},
+			/*$.ajax({
+				url : "api/error",
+				type : "post",
 				dataType : "json",
-				complete : function(data){console.log(data.responseText);}
-			});
+				success : function(data){console.log(data);},
+				complete : this.success,
+				data : JSON.stringify({message : "Error"})
+			});*/
 		</script>
 	</body>
 </html>
